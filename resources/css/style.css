@@ -1,0 +1,14 @@
+
+section{
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: contain;
+    height: 100%;
+    
+}
+html{
+    margin: 0;
+    top: 0;
+   
+}
