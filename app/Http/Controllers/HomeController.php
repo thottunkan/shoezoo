@@ -13,14 +13,18 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        $allProducts =  Product::all();
-        //var_dump($allProducts);
-        
-        if (count($allProducts)>0) {
-            //return response()->json($allProducts);
-            return view("home",compact('allProducts'));
+        if(session()->has('name')){
+            $allProducts =  Product::all();
+            //var_dump($allProducts);
+            
+            if (count($allProducts)>0) {
+                //return response()->json($allProducts);
+                return view("home",compact('allProducts'));
+            }
+        }else{
+            return view("login");
         }
-        return view("home");
+        
     }
 
     /**

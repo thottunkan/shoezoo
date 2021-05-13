@@ -21,6 +21,7 @@ class UserProfileController extends Controller
     }
     public function index()
     {   
+        if(session()->has('name')){
         // $cartdata = Cart::join("logins","logins.id","=","carts.login_id")->where("carts.login_id","=",$session_loginId)
         // ->join("products","products.id","=","carts.product_id")
         // ->select("carts.cid","products.id","products.image","products.company_name","products.price","products.id")->get();
@@ -32,6 +33,10 @@ class UserProfileController extends Controller
         ->where("logins.id","=",$loginId)->get();
         // $data = response()->json($userdata);
          return view("userprofile",compact("userdata"));
+        }
+        else{
+            return view("login");
+        } 
     }
 
     /**

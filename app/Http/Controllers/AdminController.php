@@ -28,7 +28,7 @@ class AdminController extends Controller
         $salesdata = Purchase::join("products","products.id","=","purchases.product_id")
         ->join("registers","registers.login_id","=","purchases.login_id")
         ->join("logins","logins.id","=","registers.login_id")
-        ->select("products.image","products.company_name","products.model_name","products.price","registers.name","logins.username")->get();
+        ->select("products.image","products.company_name","products.model_name","products.price","registers.name","logins.username","purchases.purchase_date")->get();
 
        
         return view("saledproducts",compact("salesdata"));

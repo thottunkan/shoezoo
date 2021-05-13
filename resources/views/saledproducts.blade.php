@@ -38,6 +38,7 @@
                             <td><b>Price</b></td>
                             <td><b>Customer Name</b></td>
                             <td><b>Customer Username</b></td>
+                            <td><b>Purchase date</b></td>
                         </th>
                     
                     @foreach ($salesdata as $data)
@@ -49,6 +50,7 @@
                             <td>{{$data->price}}</td>
                             <td>{{$data->name}}</td>
                             <td>{{$data->username}}</td>
+                            <td>{{$data->purchase_date}}</td>
                         </tr>
                     @endforeach
                 </table>

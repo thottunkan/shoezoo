@@ -18,16 +18,18 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
-       $session_loginId = session("loginId");
-       echo $session_loginId;
-       $cartdata = Cart::join("logins","logins.id","=","carts.login_id")->where("carts.login_id","=",$session_loginId)
-       ->join("products","products.id","=","carts.product_id")
-       ->select("carts.cid","products.id","products.image","products.company_name","products.price","products.model_name",
-       "products.category","products.asin","products.item_model_number")->get();
-     //return response()->json($cartdata);
-        return view("cart",compact("cartdata"));
-        
+        if(session()->has('name')){
+            $session_loginId = session("loginId");
+            echo $session_loginId;
+            $cartdata = Cart::join("logins","logins.id","=","carts.login_id")->where("carts.login_id","=",$session_loginId)
+            ->join("products","products.id","=","carts.product_id")
+            ->select("carts.cid","products.id","products.image","products.company_name","products.price","products.model_name",
+            "products.category","products.asin","products.item_model_number")->get();
+            //return response()->json($cartdata);
+                return view("cart",compact("cartdata"));
+        }else{
+            return view("login");
+        }        
        
        
     }
