@@ -57,7 +57,7 @@
                             <input type="text"  required class="form-control" name="username" placeholder="Enter username"><br>
                        </tr>
                        <tr>
-                            <input type="text" required class="form-control" name="password" placeholder="Enter password"><br>
+                            <input type="password" required class="form-control" name="password" placeholder="Enter password"><br>
                        </tr>
                        <tr>
                             <input type="submit" value="Login" class="btn btn-dark form-control">
